@@ -1,0 +1,26 @@
+[
+  {
+    "uuid": "97653034-3f11-36f1-8b0a-1c2a972360c8",
+    "name": "Vitaz",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "240ac221-2c6d-391b-a34d-f477a2d4a521",
+    "name": "Doctorwhy",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "05836dff-216a-3706-90af-276f3256d669",
+    "name": "bamski",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "25c13b77-4598-3727-94a7-6c828390ad40",
+    "name": "FerroGum",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  }
+]

@@ -1,0 +1,330 @@
+---- Minecraft Crash Report ----
+// Don't do that.
+
+Time: 4/6/20 5:35 PM
+Description: Watching Server
+
+java.lang.Error: ServerHangWatchdog detected that a single server tick took 60.00 seconds (should be max 0.05)
+	at java.io.WinNTFileSystem.canonicalize0(Native Method) ~[?:1.8.0_241] {}
+	at java.io.WinNTFileSystem.canonicalize(Unknown Source) ~[?:1.8.0_241] {}
+	at java.io.File.getCanonicalPath(Unknown Source) ~[?:1.8.0_241] {}
+	at java.io.FilePermission$1.run(Unknown Source) ~[?:1.8.0_241] {}
+	at java.io.FilePermission$1.run(Unknown Source) ~[?:1.8.0_241] {}
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_241] {}
+	at java.io.FilePermission.init(Unknown Source) ~[?:1.8.0_241] {}
+	at java.io.FilePermission.<init>(Unknown Source) ~[?:1.8.0_241] {}
+	at sun.net.www.protocol.file.FileURLConnection.getPermission(Unknown Source) ~[?:1.8.0_241] {}
+	at sun.net.www.protocol.jar.JarFileFactory.getPermission(Unknown Source) ~[?:1.8.0_241] {}
+	at sun.net.www.protocol.jar.JarFileFactory.getCachedJarFile(Unknown Source) ~[?:1.8.0_241] {}
+	at sun.net.www.protocol.jar.JarFileFactory.get(Unknown Source) ~[?:1.8.0_241] {}
+	at sun.net.www.protocol.jar.JarURLConnection.connect(Unknown Source) ~[?:1.8.0_241] {}
+	at sun.net.www.protocol.jar.JarURLConnection.getInputStream(Unknown Source) ~[?:1.8.0_241] {}
+	at cpw.mods.modlauncher.TransformingClassLoader$AutoURLConnection.<init>(TransformingClassLoader.java:158) ~[modlauncher-5.0.0-milestone.4.jar:?] {}
+	at cpw.mods.modlauncher.TransformingClassLoader$DelegatedClassLoader.findClass(TransformingClassLoader.java:222) ~[modlauncher-5.0.0-milestone.4.jar:?] {}
+	at cpw.mods.modlauncher.TransformingClassLoader.loadClass(TransformingClassLoader.java:126) ~[modlauncher-5.0.0-milestone.4.jar:?] {}
+	at cpw.mods.modlauncher.TransformingClassLoader.loadClass(TransformingClassLoader.java:96) ~[modlauncher-5.0.0-milestone.4.jar:?] {}
+	at java.lang.ClassLoader.loadClass(Unknown Source) ~[?:1.8.0_241] {}
+	at net.minecraft.server.management.PlayerList.func_72355_a(PlayerList.java:132) ~[?:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.network.login.ServerLoginNetHandler.func_147326_c(ServerLoginNetHandler.java:116) ~[?:?] {re:classloading}
+	at net.minecraft.network.login.ServerLoginNetHandler.func_73660_a(ServerLoginNetHandler.java:63) ~[?:?] {re:classloading}
+	at net.minecraft.network.NetworkManager.func_74428_b(NetworkManager.java:224) ~[?:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.network.NetworkSystem.func_151269_c(NetworkSystem.java:135) ~[?:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:864) ~[?:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:329) ~[?:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:782) ~[?:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:635) ~[?:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_241] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server Watchdog
+Stacktrace:
+	at java.io.WinNTFileSystem.canonicalize0(Native Method)
+	at java.io.WinNTFileSystem.canonicalize(Unknown Source)
+	at java.io.File.getCanonicalPath(Unknown Source)
+	at java.io.FilePermission$1.run(Unknown Source)
+	at java.io.FilePermission$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.io.FilePermission.init(Unknown Source)
+	at java.io.FilePermission.<init>(Unknown Source)
+	at sun.net.www.protocol.file.FileURLConnection.getPermission(Unknown Source)
+	at sun.net.www.protocol.jar.JarFileFactory.getPermission(Unknown Source)
+	at sun.net.www.protocol.jar.JarFileFactory.getCachedJarFile(Unknown Source)
+	at sun.net.www.protocol.jar.JarFileFactory.get(Unknown Source)
+	at sun.net.www.protocol.jar.JarURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.jar.JarURLConnection.getInputStream(Unknown Source)
+	at cpw.mods.modlauncher.TransformingClassLoader$AutoURLConnection.<init>(TransformingClassLoader.java:158)
+	at cpw.mods.modlauncher.TransformingClassLoader$DelegatedClassLoader.findClass(TransformingClassLoader.java:222)
+	at cpw.mods.modlauncher.TransformingClassLoader.loadClass(TransformingClassLoader.java:126)
+	at cpw.mods.modlauncher.TransformingClassLoader.loadClass(TransformingClassLoader.java:96)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at net.minecraft.server.management.PlayerList.func_72355_a(PlayerList.java:132)
+	at net.minecraft.network.login.ServerLoginNetHandler.func_147326_c(ServerLoginNetHandler.java:116)
+	at net.minecraft.network.login.ServerLoginNetHandler.func_73660_a(ServerLoginNetHandler.java:63)
+	at net.minecraft.network.NetworkManager.func_74428_b(NetworkManager.java:224)
+	at net.minecraft.network.NetworkSystem.func_151269_c(NetworkSystem.java:135)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:864)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:329)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:782)
+
+-- Thread Dump --
+Details:
+	Threads: "Netty Server IO #5" Id=55 BLOCKED on java.util.Collections$SynchronizedRandomAccessList@4895f11a owned by "Server thread" Id=27
+	at java.util.Collections$SynchronizedCollection.add(Unknown Source)
+	-  blocked on java.util.Collections$SynchronizedRandomAccessList@4895f11a
+	at net.minecraft.network.NetworkSystem$1.initChannel(NetworkSystem.java:87)
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:113)
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:105)
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:637)
+	at io.netty.channel.DefaultChannelPipeline.access$000(DefaultChannelPipeline.java:46)
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1487)
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1161)
+	...
+
+
+"Netty Server IO #4" Id=54 BLOCKED on java.util.Collections$SynchronizedRandomAccessList@4895f11a owned by "Server thread" Id=27
+	at java.util.Collections$SynchronizedCollection.add(Unknown Source)
+	-  blocked on java.util.Collections$SynchronizedRandomAccessList@4895f11a
+	at net.minecraft.network.NetworkSystem$1.initChannel(NetworkSystem.java:87)
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:113)
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:105)
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:637)
+	at io.netty.channel.DefaultChannelPipeline.access$000(DefaultChannelPipeline.java:46)
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1487)
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1161)
+	...
+
+
+"Netty Server IO #3" Id=53 BLOCKED on java.util.Collections$SynchronizedRandomAccessList@4895f11a owned by "Server thread" Id=27
+	at java.util.Collections$SynchronizedCollection.add(Unknown Source)
+	-  blocked on java.util.Collections$SynchronizedRandomAccessList@4895f11a
+	at net.minecraft.network.NetworkSystem$1.initChannel(NetworkSystem.java:87)
+	at io.netty.channel.ChannelInitializer.initChannel(ChannelInitializer.java:113)
+	at io.netty.channel.ChannelInitializer.handlerAdded(ChannelInitializer.java:105)
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAdded0(DefaultChannelPipeline.java:637)
+	at io.netty.channel.DefaultChannelPipeline.access$000(DefaultChannelPipeline.java:46)
+	at io.netty.channel.DefaultChannelPipeline$PendingHandlerAddedTask.execute(DefaultChannelPipeline.java:1487)
+	at io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1161)
+	...
+
+
+"Netty Server IO #2" Id=52 RUNNABLE (in native)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@46520678
+	-  locked java.util.Collections$UnmodifiableSet@426d9a6a
+	-  locked sun.nio.ch.WindowsSelectorImpl@76f0c43
+	at sun.nio.ch.SelectorImpl.select(Unknown Source)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	...
+
+
+"Netty Server IO #1" Id=51 RUNNABLE (in native)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@60952095
+	-  locked java.util.Collections$UnmodifiableSet@36a28b39
+	-  locked sun.nio.ch.WindowsSelectorImpl@18b2f94d
+	at sun.nio.ch.SelectorImpl.select(Unknown Source)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	...
+
+
+"Server Watchdog" Id=50 RUNNABLE
+	at sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at sun.management.ThreadImpl.dumpAllThreads(Unknown Source)
+	at net.minecraft.server.dedicated.ServerHangWatchdog.run(ServerHangWatchdog.java:37)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"poi IO worker" Id=45 WAITING on java.lang.String@6740f30c
+	at sun.misc.Unsafe.park(Native Method)
+	-  waiting on java.lang.String@6740f30c
+	at java.util.concurrent.locks.LockSupport.park(Unknown Source)
+	at net.minecraft.world.chunk.storage.IOWorker.func_227105_c_(SourceFile:124)
+	at net.minecraft.world.chunk.storage.IOWorker.func_227107_d_(SourceFile:134)
+	at net.minecraft.world.chunk.storage.IOWorker$$Lambda$3085/711315074.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"chunk IO worker" Id=44 WAITING on java.lang.String@6740f30c
+	at sun.misc.Unsafe.park(Native Method)
+	-  waiting on java.lang.String@6740f30c
+	at java.util.concurrent.locks.LockSupport.park(Unknown Source)
+	at net.minecraft.world.chunk.storage.IOWorker.func_227105_c_(SourceFile:124)
+	at net.minecraft.world.chunk.storage.IOWorker.func_227107_d_(SourceFile:134)
+	at net.minecraft.world.chunk.storage.IOWorker$$Lambda$3085/711315074.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"Thread-6" Id=42 RUNNABLE (in native)
+	at sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0(Native Method)
+	at sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"Netty Server IO #0" Id=41 RUNNABLE (in native)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@2e18e6f9
+	-  locked java.util.Collections$UnmodifiableSet@cc14b40
+	-  locked sun.nio.ch.WindowsSelectorImpl@3b6b304
+	at sun.nio.ch.SelectorImpl.select(Unknown Source)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	...
+
+
+"ObjectCleanerThread" Id=40 TIMED_WAITING on java.lang.ref.ReferenceQueue$Lock@630ee8ed
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@630ee8ed
+	at java.lang.ref.ReferenceQueue.remove(Unknown Source)
+	at io.netty.util.internal.ObjectCleaner$1.run(ObjectCleaner.java:54)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"Server console handler" Id=31 RUNNABLE (in native)
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(Unknown Source)
+	at java.io.BufferedInputStream.read1(Unknown Source)
+	at java.io.BufferedInputStream.read(Unknown Source)
+	-  locked java.io.BufferedInputStream@a48f55b
+	at sun.nio.cs.StreamDecoder.readBytes(Unknown Source)
+	at sun.nio.cs.StreamDecoder.implRead(Unknown Source)
+	at sun.nio.cs.StreamDecoder.read(Unknown Source)
+	-  locked java.io.InputStreamReader@c553419
+	at java.io.InputStreamReader.read(Unknown Source)
+	...
+
+
+"DestroyJavaVM" Id=30 RUNNABLE
+
+
+"Server thread" Id=27 RUNNABLE
+	at java.io.WinNTFileSystem.canonicalize0(Native Method)
+	at java.io.WinNTFileSystem.canonicalize(Unknown Source)
+	at java.io.File.getCanonicalPath(Unknown Source)
+	at java.io.FilePermission$1.run(Unknown Source)
+	at java.io.FilePermission$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.io.FilePermission.init(Unknown Source)
+	at java.io.FilePermission.<init>(Unknown Source)
+	...
+
+
+"Server Infinisleeper" Id=28 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at net.minecraft.server.dedicated.DedicatedServer$1.run(DedicatedServer.java:88)
+
+
+"Snooper Timer" Id=26 WAITING on java.util.TaskQueue@63bf9c84
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@63bf9c84
+	at java.lang.Object.wait(Unknown Source)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+
+
+"pool-2-thread-1" Id=18 WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@46ef9916
+	at sun.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@46ef9916
+	at java.util.concurrent.locks.LockSupport.park(Unknown Source)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(Unknown Source)
+	at java.util.concurrent.LinkedBlockingQueue.take(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"Thread-2" Id=17 RUNNABLE (in native)
+	at sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus0(Native Method)
+	at sun.nio.fs.WindowsNativeDispatcher.GetQueuedCompletionStatus(Unknown Source)
+	at sun.nio.fs.WindowsWatchService$Poller.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"Thread-1" Id=16 TIMED_WAITING
+	at sun.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+	at com.electronwill.nightconfig.core.file.FileWatcher$WatcherThread.run(FileWatcher.java:190)
+
+
+"Attach Listener" Id=5 RUNNABLE
+
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+
+"Finalizer" Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@10b42467
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@10b42467
+	at java.lang.ref.ReferenceQueue.remove(Unknown Source)
+	at java.lang.ref.ReferenceQueue.remove(Unknown Source)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Unknown Source)
+
+
+"Reference Handler" Id=2 WAITING on java.lang.ref.Reference$Lock@3c39d117
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.Reference$Lock@3c39d117
+	at java.lang.Object.wait(Unknown Source)
+	at java.lang.ref.Reference.tryHandlePending(Unknown Source)
+	at java.lang.ref.Reference$ReferenceHandler.run(Unknown Source)
+
+
+
+Stacktrace:
+	at net.minecraft.server.dedicated.ServerHangWatchdog.run(ServerHangWatchdog.java:52)
+	at java.lang.Thread.run(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.15.2
+	Minecraft Version ID: 1.15.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_241, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 624761000 bytes (595 MB) / 1013448704 bytes (966 MB) up to 1013448704 bytes (966 MB)
+	CPUs: 8
+	JVM Flags: 2 total; -Xmx1024M -Xms1024M
+	ModLauncher: 5.0.0-milestone.4+67+b1a340b
+	ModLauncher launch target: fmlserver
+	ModLauncher naming: srg
+	ModLauncher services: 
+		/eventbus-2.0.0-milestone.1-service.jar eventbus PLUGINSERVICE 
+		/forge-1.15.2-31.1.0.jar object_holder_definalize PLUGINSERVICE 
+		/forge-1.15.2-31.1.0.jar runtime_enum_extender PLUGINSERVICE 
+		/accesstransformers-2.0.0-milestone.1-shadowed.jar accesstransformer PLUGINSERVICE 
+		/forge-1.15.2-31.1.0.jar capability_inject_definalize PLUGINSERVICE 
+		/forge-1.15.2-31.1.0.jar runtimedistcleaner PLUGINSERVICE 
+		/forge-1.15.2-31.1.0.jar fml TRANSFORMATIONSERVICE 
+	FML: 31.1
+	Forge: net.minecraftforge:31.1.0
+	FML Language Providers: 
+		javafml@31.1
+		minecraft@1
+	Mod List: 
+		forge-1.15.2-31.1.0-server.jar Minecraft {minecraft@1.15.2 DONE}
+		FallingTree-1.15.2-2.1.0+24.jar Falling Tree {falling_tree@2.1.0+24 DONE}
+		forge-1.15.2-31.1.0-universal.jar Forge {forge@31.1.0 DONE}
+		Project+MMO-1.15-1.17.6.jar Project MMO {pmmo@1.17.6 DONE}
+	Player Count: 0 / 20; []
+	Data Packs: vanilla, file/bukkit, mod:forge (incompatible), mod:pmmo (incompatible), mod:falling_tree
+	Is Modded: Definitely; Server brand changed to 'forge'
+	Type: Dedicated Server (map_server.txt)
